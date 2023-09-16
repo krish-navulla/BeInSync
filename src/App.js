@@ -1,24 +1,71 @@
-import logo from './logo.svg';
+import { Box } from '@mui/system';
 import './App.css';
+import HomeIcon from '@mui/icons-material/Home';
+import Message from '@mui/icons-material/Message';
+import PersonIcon from '@mui/icons-material/Person';
+
+import { BrowserRouter as Router, Route, Link, Routes, createBrowserRouter, BrowserRouter } from 'react-router-dom';
+import { Person } from '@mui/icons-material';
+import SwipingCard from './SwipingCard';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <BrowserRouter>
+      <div class="App">
+      
+      <header class="App-header">
+        
+          <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          '& > :not(style)': {
+            m: 5,
+          },
+        }}
         >
-          Learn React
-        </a>
+        <Link to="/profile">
+          <PersonIcon />
+        </Link>
+        <Link to="/">
+          <HomeIcon />
+        </Link>
+        <Link to="/chat">
+          <Message />
+        </Link>
+        </Box>
+  
       </header>
+
+      <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '80vh', // Adjust the height as needed
+          }}
+        >
+          <div
+            style={{
+              width: '500px', // Adjust the width as needed
+              height: '500px', // Adjust the height as needed
+              border: '2px solid #ccc', // Add border styling
+              borderRadius: '10px', // Add border radius for a rounded appearance
+              overflow: 'hidden', // Hide overflowing content
+            }}
+          >
+            <SwipingCard />
+          </div>
+        </div>
+
+
+    
+
+     
     </div>
+    </BrowserRouter>
   );
 }
 
