@@ -1,0 +1,62 @@
+/* Student.css */
+
+/* Overall container styling */
+div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0; /* Background color */
+  }
+  
+  /* Form container styling */
+  form {
+    background-color: #ffffff; /* Form background color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px; /* Adjust the form width as needed */
+    width: 100%;
+  }
+  
+  /* Form label styling */
+  label {
+    display: flex;
+    flex-direction: column; /* Place the label and input in a vertical stack */
+    align-items: center; /* Center-align items horizontally */
+    margin-bottom: 20px; /* Add some vertical spacing between labels */
+  }
+  
+  /* Input field styling */
+  input[type="text"],
+  input[type="password"],
+  textarea,
+  input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px; /* Adjust top margin for better spacing */
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  /* Submit button styling */
+  button[type="submit"] {
+    background-color: #007bff; /* Button background color */
+    color: #ffffff; /* Button text color */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  /* Mandatory indicator styling */
+  span.mandatory-indicator {
+    color: #ff0000; /* Red color for the indicator */
+  }
+  
+  /* Additional styling can be added as needed */
+  

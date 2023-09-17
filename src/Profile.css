@@ -1,0 +1,36 @@
+/* Example CSS for styling the Profile component */
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .profile-name {
+    margin-top: 10px;
+    font-size: 24px;
+  }
+  
+  .profile-skills {
+    margin-top: 20px;
+  }
+  
+  .profile-matches {
+    margin-top: 20px;
+  }
+  
+  .sign-out-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff0000; /* Example button styling */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  

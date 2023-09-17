@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
+import Paper from '@mui/material/Paper';
 
 
 export default function MultiActionAreaCard({index, name, description, visible, onLike, onDislike}) {
@@ -24,7 +25,7 @@ export default function MultiActionAreaCard({index, name, description, visible, 
 
     return (
         <div>
-    
+    <Paper elevation={3} style={{width: '100%', height: '100%'}}>
     <Card class = "card" style = {{display : isHidden ? 'none' : 'block'}} >
       <CardActionArea>
         <CardMedia
@@ -72,6 +73,7 @@ export default function MultiActionAreaCard({index, name, description, visible, 
         
       </CardActions>
     </Card>
+    </Paper>
     </div>
   );
 }

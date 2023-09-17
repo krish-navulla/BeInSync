@@ -1,0 +1,27 @@
+/* App.css */
+
+/* Style for the button container */
+.button-container {
+    display: flex;
+    flex-direction: column; /* Buttons will stack vertically */
+    gap: 10px; /* Adjust the spacing between buttons */
+  }
+  
+  /* Style for the buttons */
+  .custom-button {
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Button text color */
+    padding: 10px 20px; /* Button padding */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+  
+    /* Add more styling as needed */
+  }
+  
+  /* Hover effect for buttons */
+  .custom-button:hover {
+    background-color: #0056b3; /* Change background color on hover */
+  }
+  

@@ -1,0 +1,91 @@
+/* StudentRegistration.css */
+
+/* Container styling */
+div {
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+  }
+  
+  /* Form styling */
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* Label styling */
+  label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  /* Input styling */
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Button styling */
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  .mandatory-indicator {
+    color: red; /* Change the color as needed */
+    margin-left: 5px; /* Add spacing between the label and the indicator */
+  }
+  /* Student.css */
+
+/* Overall container styling */
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f0f0f0; /* Background color */
+}
+
+/* Form container styling */
+form {
+  background-color: #ffffff; /* Form background color */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  max-width: 400px; /* Adjust the form width as needed */
+  width: 100%;
+}
+
+/* Form label styling */
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Input field styling */
+input[type="text"],
+input[type="password"],
+textarea,
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 
+}
