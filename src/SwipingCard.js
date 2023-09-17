@@ -13,7 +13,7 @@ function SwipingCard() {
   const [currentIndex, setCurrentIndex] = useState(0);
 const [people, setPeople] = useState([]);
 const [mounted, setMounted] = useState(true); // Declare 'mounted' state variable
-const emailLoggedIn = "vnavulla@gmail.com";
+const emailLoggedIn = "Krish@gmail.com";
 
 
   const handleLike = (LikedPersonEmail) => {
@@ -26,27 +26,63 @@ const emailLoggedIn = "vnavulla@gmail.com";
         const db = getFirestore(app);
         const dbRef = collection(db, 'Mentors');
       
-        // Construct a query to find the document based on LikedPersonEmail
-        const query1 = query(dbRef, where ('email', '==', LikedPersonEmail));
-        const querySnapshot = await getDocs(query1);
-        console.log(querySnapshot);
-        // Check if a document with the specified email exists
-        if (!querySnapshot.empty) {
-          // Get the reference to the first document (assuming email is unique)
-          const LikedPerson = doc(dbRef, querySnapshot.docs[0].id);
+        // Construct queries to find the documents based on LikedPersonEmail and emailLoggedIn
+        const query1 = query(dbRef, where('email', '==', LikedPersonEmail));
+        const query2 = query(dbRef, where('email', '==', emailLoggedIn));
       
-          // Update the 'likedBy' field of the document\
-        await updateDoc(LikedPerson, {
+        const querySnapshot1 = await getDocs(query1);
+        const querySnapshot2 = await getDocs(query2);
+      
+        // Check if a document with the specified email exists for LikedPerson
+        if (!querySnapshot1.empty) {
+          // Get the reference to the first document (assuming email is unique)
+          const LikedPerson = doc(dbRef, querySnapshot1.docs[0].id);
+      
+          // Update the 'LikedBy' field of the document with Person A's email
+          await updateDoc(LikedPerson, {
             likedBy: arrayUnion(emailLoggedIn),
           });
       
           console.log('Document successfully updated for LikedPerson!');
         } else {
-          console.error('Document with email not found.');
+          console.error('Document with email not found for LikedPerson.');
+        }
+      
+        // Check if a document with the specified email exists for emailLoggedIn
+        if (!querySnapshot2.empty) {
+          // Get the reference to the first document (assuming email is unique)
+          const userDoc = querySnapshot2.docs[0];
+          const userDocId = userDoc.id;
+      
+          // Update the 'LikedBy' field of the document with LikedPerson's email
+          await updateDoc(doc(dbRef, userDocId), {
+            likedBy: arrayUnion(LikedPersonEmail),
+          });
+      
+          console.log('Document successfully updated for emailLoggedIn!');
+      
+          // Check if mutual liking occurred (both liked each other)
+          if (userDoc.data().likedBy.includes(LikedPersonEmail)) {
+            // Update the 'Matched' field of both Person A and Person B
+            const LikedPerson = doc(dbRef, querySnapshot1.docs[0].id);
+            await updateDoc(LikedPerson, {
+              matched: arrayUnion(emailLoggedIn),
+            });
+      
+            await updateDoc(doc(dbRef, userDocId), {
+              matched: arrayUnion(LikedPersonEmail),
+            });
+      
+            console.log('Mutual liking! Matched!');
+          }
+        } else {
+          console.error('Document with email not found for emailLoggedIn.');
         }
       };
       
       setDoc();
+      
+      
     
 
   };
@@ -90,7 +126,7 @@ const emailLoggedIn = "vnavulla@gmail.com";
       <p>Swipping Card</p>
     
       {people
-      .filter(person => person.email !== "vnavulla@gmail.com")
+      .filter(person => person.email !== emailLoggedIn)
       .map((person, index) => (
         
           <CardBoard
