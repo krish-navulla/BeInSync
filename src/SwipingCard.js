@@ -6,14 +6,16 @@ import { Collections } from '@mui/icons-material';
 import { getFirestore, collection, getDocs, updateDoc } from 'firebase/firestore';
 
 
+
 // import css
 import './SwipingCard.css';
 import { doc, arrayUnion, query, where } from 'firebase/firestore';
 function SwipingCard() {
+    const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-const [people, setPeople] = useState([]);
-const [mounted, setMounted] = useState(true); // Declare 'mounted' state variable
-const emailLoggedIn = "Krish@gmail.com";
+    const [people, setPeople] = useState([]);
+    const [mounted, setMounted] = useState(true); // Declare 'mounted' state variable
+    const emailLoggedIn = "Krish@gmail.com";
 
 
   const handleLike = (LikedPersonEmail) => {
@@ -72,7 +74,10 @@ const emailLoggedIn = "Krish@gmail.com";
             await updateDoc(doc(dbRef, userDocId), {
               matched: arrayUnion(LikedPersonEmail),
             });
-      
+            setShowSuccessAlert(true);
+            setTimeout(() => {
+                setShowSuccessAlert(false);
+              }, 5000);
             console.log('Mutual liking! Matched!');
           }
         } else {
@@ -123,8 +128,17 @@ const emailLoggedIn = "Krish@gmail.com";
  
   return (
     <div className='card' style={{ width: '100%', height: '100%' }}>
-      <p>Swipping Card</p>
+      <p>Mentor Match</p>
     
+        {/* {showSuccessAlert && (
+        <div class="alert alert-primary d-flex align-items-center" role="alert" style={{ width: '5%', height: '5%' }}>
+        <div class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
+            <a href="#info-fill"/>
+        </div>
+        <div>
+            You are Matched!
+        </div>
+        </div>)} */}
       {people
       .filter(person => person.email !== emailLoggedIn)
       .map((person, index) => (
@@ -138,6 +152,7 @@ const emailLoggedIn = "Krish@gmail.com";
             visible={index == currentIndex}
             onLike={handleLike}
             onDisLike={handleDisLike}
+            matched={showSuccessAlert}
           />
         
       ))}

@@ -9,7 +9,7 @@ import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import Paper from '@mui/material/Paper'; // Correct import statement
 
-export default function MultiActionAreaCard({ index, name,email,  description, visible, onLike, onDisLike }) {
+export default function MultiActionAreaCard({ index, name,email,  description, visible, onLike, onDisLike, matched }) {
   const [isHidden, setIsHidden] = React.useState(!visible);
 
   React.useEffect(() => {
@@ -29,9 +29,23 @@ export default function MultiActionAreaCard({ index, name,email,  description, v
   return (
    
       <Card  style={{ display: isHidden ? 'none' : 'block' , width: '90%', height: '100%'}}>
+        {matched && (
+        <div className="alert alert-primary d-flex align-items-center" role="alert" style={{ width: '100%', height: '100%' }}>
+        <div className="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
+            <a href="#info-fill"/>
+        </div>
+        <div>
+            You are Matched!
+        </div>
+        </div>)}
+        
+        {!matched &&( 
         <CardActionArea>
+        
+          
           
           <CardContent style={{  width: '100%', height: '100%'}}>
+          
             <Typography gutterBottom variant="h5" >
               {name}
             </Typography>
@@ -45,7 +59,10 @@ export default function MultiActionAreaCard({ index, name,email,  description, v
               </Typography>
             </div>
           </CardContent>
+          
         </CardActionArea >
+        )}
+        {!matched &&( 
         <CardActions style={{  width: '30%', height: '30%'}}>
           <Box
             sx={{
@@ -68,6 +85,7 @@ export default function MultiActionAreaCard({ index, name,email,  description, v
             </div>
           </Box>
         </CardActions>
+        )}
       </Card>
     
   );
