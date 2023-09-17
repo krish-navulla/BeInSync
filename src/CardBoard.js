@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Box} from '@mui/system';
+import { Box } from '@mui/system';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -7,73 +7,68 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
-import Paper from '@mui/material/Paper';
+import Paper from '@mui/material/Paper'; // Correct import statement
 
-
-export default function MultiActionAreaCard({index, name, description, visible, onLike, onDislike}) {
+export default function MultiActionAreaCard({ index, name,email,  description, visible, onLike, onDisLike }) {
   const [isHidden, setIsHidden] = React.useState(!visible);
-  
+
   React.useEffect(() => {
     setIsHidden(!visible);
   }, [visible]);
 
-
   const handleSucessClick = () => {
     setIsHidden(true);
-    onLike();
+    onLike(email);
   };
 
-    return (
-        <div>
-    <Paper elevation={3} style={{width: '100%', height: '100%'}}>
-    <Card class = "card" style = {{display : isHidden ? 'none' : 'block'}} >
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
-          alt={name}
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {name}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {name}
-          </Typography>
-          {/* Description with scrolling */}
-          <div style={{ maxHeight: '100px', overflowY: 'auto', overflowX: 'auto' }}>
+  const handleRejectClick = () => {
+    setIsHidden(true);
+    onDisLike();
+  };
+
+  return (
+   
+      <Card  style={{ display: isHidden ? 'none' : 'block' , width: '90%', height: '100%'}}>
+        <CardActionArea>
+          
+          <CardContent style={{  width: '100%', height: '100%'}}>
+            <Typography gutterBottom variant="h5" >
+              {name}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {email}
+            </Typography>
+            {/* Description with scrolling */}
+            <div style={{ maxHeight: '100px', overflowY: 'auto', overflowX: 'auto' }}>
               <Typography variant="body2" color="text.secondary">
                 {description}
               </Typography>
             </div>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          '& > :not(style)': {
-            m: 1,
-          },
-        }}
-        >
-        <Button size="small" color="primary" onClick={handleSucessClick}>
-          <CheckIcon />
-        </Button>
-        <Button size="small" color="primary">
-          <CloseIcon />
-        </Button>
-        <Button size="small" color="primary">
-          <CheckIcon />
-        </Button>
-          
-        </Box>
-        
-      </CardActions>
-    </Card>
-    </Paper>
-    </div>
+          </CardContent>
+        </CardActionArea >
+        <CardActions style={{  width: '30%', height: '30%'}}>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              '& > :not(style)': {
+                m: 1,
+              },
+            }}
+          >
+            <div className="Ellipse1" style={{width: 50, height: 53, left: 124, top: 745, background: '#D9D9D9', borderRadius: 9999, border: '1px black solid'}} >
+            <Button size="tiny" color="primary" onClick={handleSucessClick}>
+              <CheckIcon />
+            </Button>
+            </div>
+            <div className="Ellipse1" style={{width: 50, height: 53, left: 124, top: 745, background: '#D9D9D9', borderRadius: 9999, border: '1px black solid'}} >
+            <Button size="tiny" color="primary" onClick={handleRejectClick}>
+              <CloseIcon />
+            </Button>
+            </div>
+          </Box>
+        </CardActions>
+      </Card>
+    
   );
 }

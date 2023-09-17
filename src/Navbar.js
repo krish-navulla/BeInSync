@@ -3,28 +3,19 @@ import react from 'react';
 
 function Navbar() {
     return (
-        <div>
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/login">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/signup">Sign up</a>
-        </li>
-        
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-        </div>
+      <ul class="nav nav-pills ct-blue">
+
+      {/* <!--  color-classes: "ct-blue", "ct-azure", "ct-orange", "ct-red", "ct-green" */}
+  
+            {/* special-classes: "no-border"  --> */}
+  
+        <li class="active"><a href="/swipingcard">Home</a></li>
+  
+        <li><a href="#"> Profile</a></li>
+  
+        <li><a href="#">Messages</a></li>
+  
+        </ul>
     )
 };
 
