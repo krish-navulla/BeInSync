@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./Profile.css";
 import Header from "../Header/Header";
 import Bio from "../Bio/Bio";
-import Friends from "../Friends/Friends";
 
 const Profile = () => {
   const [firstName, setFirstName] = useState("First Name");
@@ -58,7 +57,7 @@ const Profile = () => {
           setDateOfBirth={setDateOfBirth}
           setFavActivity={setFavActivity}
         />
-        <Friends friendsList={friendsList} />
+        {/* <Friends friendsList={friendsList} /> */}
       </div>
     </div>
   );

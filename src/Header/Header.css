@@ -1,8 +1,8 @@
 .header-container {
   display: flex;
   align-items: center;
-  height: var(--header-height);
-  width: var(--header-width);
+  height:100%;
+  width: 100%;
   font-family: var(--main-font);
   color: var(--header-text-primary-color);
 }

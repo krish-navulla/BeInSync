@@ -78,7 +78,7 @@ function SwipingCard() {
             setShowSuccessAlert(true);
             setTimeout(() => {
                 setShowSuccessAlert(false);
-              }, 5000);
+              }, 3000);
             console.log('Mutual liking! Matched!');
           }
         } else {
@@ -140,6 +140,7 @@ function SwipingCard() {
         
           <CardBoard
           key={index}
+          data = {person}
             index={index}
             name={person.name}
             email = {person.email}

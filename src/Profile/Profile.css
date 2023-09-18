@@ -1,12 +1,12 @@
 .profile-container {
   background-color: var(--profile-background-color);
-  height: var(--profile-height);
-  width: var(--profile-width);
+  height: 100%;
+  width: 100%;
 }
 
 .body-container {
   display: flex;
   flex-direction: column;
-  height: var(--body-height);
-  width: var(--body-width);
+  height: 100%;
+  width: 100%;
 }

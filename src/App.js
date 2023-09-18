@@ -22,7 +22,7 @@ import Box from '@mui/material/Box';
 
 import TestSwipe from './TestSwipe';
 import UITest from './UITest';
-import Profile from './Profile';
+import Profile from './Profile1';
 
 
 
