@@ -68,3 +68,25 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+![image](https://github.com/krish-navulla/BeInSync/assets/42913445/1b1265e7-5ddb-4453-a253-c199714d8f93)
+
+![image](https://github.com/krish-navulla/BeInSync/assets/42913445/12bab49e-4307-4897-b037-84650b6bbd33)
+
+![image](https://github.com/krish-navulla/BeInSync/assets/42913445/4c801a6f-83db-46e7-abfb-83ff8822d238)
+
+![image](https://github.com/krish-navulla/BeInSync/assets/42913445/dde40044-cb20-414a-b2d2-e8c6714c7515)
+
+![image](https://github.com/krish-navulla/BeInSync/assets/42913445/9f98f4df-aa97-41a8-b618-821afe464939)
+
+![image](https://github.com/krish-navulla/BeInSync/assets/42913445/9041e88f-cbd7-4b8e-939e-5147060f3551)
+
+![image](https://github.com/krish-navulla/BeInSync/assets/42913445/4d78e658-5c98-494b-9c8a-c0a50ce53768)
+
+![image](https://github.com/krish-navulla/BeInSync/assets/42913445/271726c9-4c0a-4218-a6e0-5547d831ef5e)
+
+![image](https://github.com/krish-navulla/BeInSync/assets/42913445/686ac65b-875e-4287-b7c7-e0437ad284a0)
+
+
+
+
