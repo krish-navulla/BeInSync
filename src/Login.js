@@ -15,7 +15,8 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import TestSwipe from './TestSwipe';
 
 
 function Copyright(props) {
@@ -35,26 +36,36 @@ function Copyright(props) {
 
 const defaultTheme = createTheme();
 
- function SignInSide() {
+  function SignInSide() {
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
+    const [loginSuccess, setLoginSuccess] = React.useState(false); // Declare 'mounted' state variable
 
-    const navigate = useNavigate(); // Get the navigation function
+     // Get the navigation function
+    const navigate = useNavigate('');
 
+    
 
-    const auth = getAuth();
-
-    const handleLogin = () => {
+    const  handleLogin = () => {
         console.log("Login");
+        
 
-        signInWithEmailAndPassword(auth, email, password)
+        const reroute = () => {
+            navigate('/SwippingCard');
+        }
+
+        const loggingIn = async () => {
+            const auth = getAuth();
+            await signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in 
+                reroute();
+                
                 const user = userCredential.user;
-                console.log('User registered:', user);
+                console.log('User registered:', user.email);
                 // ...
                 
-                
+                setLoginSuccess(true);
 
                 console.log("Login success");
 
@@ -65,16 +76,21 @@ const defaultTheme = createTheme();
                 const errorMessage = error.message;
                 // ..
                 console.error('Registration error:', errorCode, errorMessage);
+                navigate('/signup');
             });
-
-            navigate('/SwippingCard');
+        }
+           loggingIn();
 
     };
 
 
   return (
     <div className="login-custom">
-    <ThemeProvider theme={defaultTheme}>
+        {loginSuccess && (
+            <TestSwipe />
+        )}
+        {!loginSuccess && (<div style={{width: "100%", height:"100%"}}>
+        <ThemeProvider theme={defaultTheme}>
       <Grid container  component="main" >
         <CssBaseline />
         <Grid
@@ -126,10 +142,10 @@ const defaultTheme = createTheme();
     
     <button type="submit" className="btn btn-primary" onClick={handleLogin}>
         Submit
-    </button>
+    </button >
     <p>
         Don't have an account?{' '}
-        <Link to="/signup">Sign Up</Link>
+        <button className="btn btn-secondary" onClick={() =>navigate("/signup")}>Sign Up</button>
     </p>
     </form>
 
@@ -139,6 +155,7 @@ const defaultTheme = createTheme();
         </Grid>
       </Grid>
     </ThemeProvider>
+        </div>)}
     </div>
   );
 }

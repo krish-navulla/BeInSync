@@ -23,6 +23,10 @@ import Box from '@mui/material/Box';
 import TestSwipe from './TestSwipe';
 import UITest from './UITest';
 import Profile from './Profile1';
+import SignInSide from './Login';
+import Home from './Home';
+import Chat from './Chat';
+
 
 
 
@@ -30,21 +34,24 @@ import Profile from './Profile1';
 function App() {
   return (
   <Container style={{alignContent : "center"}}>
-  <BrowserRouter>
+  {/* <BrowserRouter> */}
      
         
 
       <Routes>
-      <Route path = "/" element = {<Login />} />
+      
+      <Route index = {true} path = "/" element = {<Home />} />
+      <Route path = "/chats" element = {<Chat />} />
+      <Route path = "/login" element = {<SignInSide />} />
       <Route path = "/SwippingCard" element = {<TestSwipe />} />
       <Route path = "/profile" element = {<Profile />} />
-
-      {/* <Route path = "/signup" element = {<SignUp />} />
+      <Route path = "/signup" element = {<SignUp />} />
+     
       <Route path = "/Registration/Student" element = {<StudentRegistration />} />
       <Route path = "/Registration/Professional" element = {<ProfessionalRegistration />} />
       <Route path = "/Registration/Recruiter" element = {<RecruiterRegistration />} />
 
-      <Route path = "/Recruiter" element = {<Recruiter />} > */}
+      <Route path = "/Recruiter" element = {<Recruiter />} />
         
       {/* </Route> */}
 
@@ -52,7 +59,7 @@ function App() {
        
      
 
-  </BrowserRouter>
+  {/* </BrowserRouter> */}
   </Container>
   )
 }

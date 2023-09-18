@@ -129,11 +129,7 @@ function SwipingCard() {
  
   return (
     
-        <div className='swipingcard-container' style={{width: "100%", height: "100%", backgroundColor: " #007791"}}>
-        
-      
-    
-        
+        <div  style={{width: "100%", height: "90%", backgroundColor: " #007791"}}>
       {people
       .filter(person => person.email !== emailLoggedIn)
       .map((person, index) => (
@@ -149,6 +145,8 @@ function SwipingCard() {
             onLike={handleLike}
             onDisLike={handleDisLike}
             matched={showSuccessAlert}
+
+            
           />
         
       ))}

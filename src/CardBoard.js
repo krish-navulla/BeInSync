@@ -38,7 +38,7 @@ export default function MultiActionAreaCard({ data, index, name,email,  descript
   direction="column"
   justifyContent="center"
   alignItems="center"
-  style={{ display: isHidden ? 'none' : 'block', alignContent: "center", backgroundColor: " #007791" }}
+  style={{ display: isHidden ? 'none' : 'flex', alignContent: "center", backgroundColor: " #007791" }}
 ><CssBaseline />
   {matched && (
     <Box
@@ -46,7 +46,7 @@ export default function MultiActionAreaCard({ data, index, name,email,  descript
       sx={{
 
         position: 'relative',
-        width: 700,
+        width: 600,
         height: 300,
         backgroundColor: 'primary.dark',
         '&:hover': {
@@ -61,7 +61,13 @@ export default function MultiActionAreaCard({ data, index, name,email,  descript
     </Box>
   )}
 
-  <Grid item elevation={6} square>
+  <Grid 
+  
+  direction="column"
+  justifyContent="center"
+  alignItems="center"
+  item elevation={6} square 
+  style={{   backgroundColor: " #007791" }} >
     
 
     {!matched && (
@@ -72,8 +78,8 @@ export default function MultiActionAreaCard({ data, index, name,email,  descript
         alignItems="center"
         style={{
           width: 300,
-          height: 300,
-          backgroundColor: 'primary.dark',
+          height: 600,
+          backgroundColor:  '#007791',
           '&:hover': {
             backgroundColor: 'primary.main',
             opacity: [0.9, 0.8, 0.7],
@@ -113,7 +119,7 @@ export default function MultiActionAreaCard({ data, index, name,email,  descript
         style={{
           width: 300,
           height: 150,
-          backgroundColor: 'primary.dark',
+          backgroundColor: '#007791',
           '&:hover': {
             backgroundColor: 'primary',
             opacity: 0.5,
