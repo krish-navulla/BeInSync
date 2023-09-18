@@ -1,4 +1,5 @@
 
+
 import React, { useEffect, useRef, useState } from 'react';
 // import './Chat.css';
 import Message from './Message';
@@ -53,79 +54,10 @@ function Item(props) {
 
 
 
-// const Item = styled('div')(({ theme }) => ({
-//     width: '100%',
-//     height: 30,
-//     left: "-50",
-//     position: 'relative',
-//     backgroundColor: theme.palette.mode === 'dark' ? '#262B32' : '#fff',
-//     padding: theme.spacing(1),
-//     textAlign: 'center',
-//     borderRadius: 0,
-//   }));
-
 
 
 function Chat() {
-    // const scroll = useRef();
-    // const [messages,setMessages] = useState([]);
-    // const [user, setUser] = React.useState(null);
-    // const [sentMessage, setSentMessage] = React.useState("");
-
     
-    // const matchedEmail = "Krish@gmail.com";
-
-    // const auth = getAuth();
-    
-    //  onAuthStateChanged(auth, (user) => {
-    //     if (user) {
-    //         setUser(user);
-    //         console.log("user", user.email);
-    //         const getMessages = async() => {
-
-    //             // get all the documents in the 'messages' collection ordered by the 'createdAt' field
-    //             const query1 = query(collection(db, 'Chats'), where('to', "==", user.email, "||", 'from', "==", user.email));
-    //             const query1Snapshot = await getDocs(query1);
-    //             if (!query1Snapshot.empty) {
-    //                 setMessages(query1Snapshot.docs.map(doc => doc.data()));
-    //             }
-    //         }
-    //             if (user && messages.length == 0){
-    //                 getMessages();
-    //             }
-    //             console.log("messages", messages);
-            
-    //     } else {
-            
-    //     }
-    // });
-
-    // const setDocMessage = async () => {
-    //     const db = getFirestore(app);
-    //     const dbRef = collection(db, 'Chats');
-
-    //     await setDoc(doc(db, "Chats"), {
-    //         from: user.email,
-    //         to: matchedEmail,
-    //         text: sentMessage,
-    //         createdAt: serverTimestamp()
-    //     });
-    //     setSentMessage("");
-    //     scroll.current.scrollIntoView({ behavior: 'smooth' })
-
-    // }
-
-    // const handleSendMessage = async () => {
-        
-    //     setDocMessage();
-
-        
-    // }
-   
-    // const db = getFirestore(app);
-    //  useEffect(() => {
-
-    // }, [])
 
     const scroll = useRef();
   const [messages, setMessages] = useState([]);
@@ -155,7 +87,7 @@ function Chat() {
     const dbRef = collection(db, 'Chats');
 
     await addDoc(dbRef, {
-      from: user.email,
+      from: "12345@gmail.com",
       to: matchedEmail,
       text: sentMessage,
       createdAt: serverTimestamp(),
@@ -216,13 +148,13 @@ function Chat() {
       {messages
         .filter(({ from, to }) => {
           return (
-            (user.email === from && to === matchedEmail) ||
-            (user.email === to && from === matchedEmail)
+            ("12345@gmail.com" === from && to === matchedEmail) ||
+            ("12345@gmail.com" === to && from === matchedEmail)
           );
         })
         .reverse()
-        .slice(-10)
-        .map(({ id, text, from, to, uid, createdAt }, index) => (
+        .slice(-8)
+        .map(({ id, text, from, to, name, uid, createdAt }, index) => (
           <Box
             key={id}
             sx={{
@@ -238,7 +170,7 @@ function Chat() {
               borderRadius: 1,
             }}
           >
-            <Item sx={{width: "100%"}}>{from} : {text}</Item>
+            <Item sx={{width: "100%"}}>{name} : {text}</Item>
             
 
           </Box>

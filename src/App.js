@@ -22,6 +22,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Button from '@mui/material/Button';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import FireLogin from './FireLogin';
 
 
 
@@ -31,17 +33,27 @@ import Profile from './Profile1';
 import SignInSide from './Login';
 import Home from './Home';
 import Chat from './Chat';
+import { getAuth } from 'firebase/auth';
 
-
+import ChatList from './ChatList';
 
 
 
 function App() {
-
+  const auth = getAuth();
   const navigate = useNavigate('');
+
+  const handleSignOut = () => {
+    auth.signOut();
+    navigate('/login');
+  };
+
   return (
+    
+
     <Grid
     width={'100%'}
+    height = {"100%"}
     Container
     direction="column"
     justifyContent="center"
@@ -55,8 +67,12 @@ function App() {
 
       <Routes style = {{backgroundColor: " #007791", width : "100%"}}>
       
-      <Route index = {true} path = "/" element = {<Home />} />
+      <Route index = {true} path = "/" element = {<TestSwipe />} />
+      <Route path ="/firelogin" element = {<FireLogin />} />
+      <Route path="/chat/:name/:email" element={<Chat />} />
+      <Route path = "/SwippingCard/:email" element = {<TestSwipe />} />
       <Route path = "/chats" element = {<Chat />} />
+      <Route path = "/chatlist" element = {<ChatList />} />
       <Route path = "/login" element = {<SignInSide />} />
       <Route path = "/SwippingCard" element = {<TestSwipe />} />
       <Route path = "/profile" element = {<Profile />} />
@@ -101,6 +117,11 @@ function App() {
         <div className="Ellipse1" style={{ width: 75, height: 75,  position: "relative", background: '#D9D9D9', borderRadius: 9999, border: '1px black solid' }}>
           <Button size="tiny" color="primary" onClick={() => navigate("/chats")}>
             <Message />
+          </Button>
+        </div>
+        <div className="Ellipse1" style={{ width: 75, height: 75,  position: "relative", background: '#D9D9D9', borderRadius: 9999, border: '1px black solid' }}>
+          <Button size="tiny" color="primary" onClick={handleSignOut }>
+            <ExitToAppIcon />
           </Button>
         </div>
       </Grid>

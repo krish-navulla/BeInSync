@@ -53,9 +53,9 @@ export default function MultiActionAreaCard({ data, index, name,email,  descript
         position: 'relative',
         width: 600,
         height: 300,
-        backgroundColor: '#007755',
+        backgroundColor: '#007791',
         '&:hover': {
-          backgroundColor: '#007755',
+          backgroundColor: '#007791',
           opacity: [0.9, 0.8, 0.7],
         },
       }}
@@ -144,7 +144,8 @@ export default function MultiActionAreaCard({ data, index, name,email,  descript
               justifyContent="center"
               alignItems="center"
               bgcolor={"#007791"}>
-                <Typography width="100%"  spacing={0} padding={1} margin={0} variant = "h4" color = "text.primary">
+                <Typography width="100%"  spacing={0} padding={1} margin={0}
+                 variant = "h4" color = "text.primary">
                 Guide me in <Typography variant = "h3" color = "#FFFFFF">
              {data.wanttolearn} ?
             </Typography> 
@@ -162,7 +163,8 @@ export default function MultiActionAreaCard({ data, index, name,email,  descript
               justifyContent="center"
               alignItems="center"
               bgcolor={"#007791"}>
-                <Typography  width="100%" spacing={0} padding={1} margin={0} variant = "h4" color = "text.primary">
+                <Typography  width="100%" spacing={0} padding={1} margin={0}
+                 variant = "h4" color = "text.primary">
                 Moreover <Typography variant = "h5" color = "#FFFFFF">
              {data["about me"]}
             </Typography>

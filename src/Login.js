@@ -17,6 +17,7 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import TestSwipe from './TestSwipe';
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 
 function Copyright(props) {
@@ -44,58 +45,43 @@ const defaultTheme = createTheme();
      // Get the navigation function
     const navigate = useNavigate('');
 
-    
+    const auth = getAuth();
+    const reroute = () => {
+        navigate("/profile");
+    }
+
 
     const  handleLogin = () => {
         console.log("Login");
+        navigate('/SwippingCard');
+            // createUserWithEmailAndPassword(auth, email, password)
+            // .then((userCredential) => {
+            //     // Signed in 
+            //     console.log("Login success");
+            //    reroute();
+
+            // })
+            // .catch((error) => {
+            //     const errorCode = error.code;
+            //     const errorMessage = error.message;
+            //     // ..
+            //     console.error('Registration error:', errorCode, errorMessage);
+            //     navigate('/SwippedCard/');
+            // });
         
-
-        const reroute = () => {
-            navigate('/SwippingCard');
-        }
-
-        const loggingIn = async () => {
-            const auth = getAuth();
-            await signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // Signed in 
-                reroute();
-                
-                const user = userCredential.user;
-                console.log('User registered:', user.email);
-                // ...
-                
-                setLoginSuccess(true);
-
-                console.log("Login success");
-
-
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // ..
-                console.error('Registration error:', errorCode, errorMessage);
-                navigate('/signup');
-            });
-        }
-           loggingIn();
-
     };
 
 
   return (
-    <div className="login-custom">
-        {loginSuccess && (
-            <TestSwipe />
-        )}
-        {!loginSuccess && (<div style={{width: "100%", height:"100%"}}>
+    <div className="login-custom" style ={{width : "100%", height:"70%"}}>
+        
+        (<div style={{width: "100%", height:"100%"}}>
         <ThemeProvider theme={defaultTheme}>
-      <Grid container  component="main" >
+      <Grid container width={"100%"} height={"100%"} component="main" >
         <CssBaseline />
         <Grid
           item
-          
+          style ={{width : "100%", height:"100%"}}
           xs={false}
           sm={4}
           md={7}
@@ -108,9 +94,10 @@ const defaultTheme = createTheme();
             backgroundPosition: 'center',
           }}
         />
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square >
+    <Grid style ={{width : "100%", height:"100%"}} item xs={12} sm={8} md={5} 
+        component={Paper} elevation={6} square >
         
-    <form className = " login">
+    <form onSubmit = {handleLogin} className = " login" style ={{width : "100%", height:"70%"}}>
         
         <label htmlFor="exampleInputEmail1" className="form-label">
         Email address
@@ -140,7 +127,7 @@ const defaultTheme = createTheme();
 
        
     
-    <button type="submit" className="btn btn-primary" onClick={handleLogin}>
+    <button type="submit" className="btn btn-primary" >
         Submit
     </button >
     <p>
@@ -155,7 +142,7 @@ const defaultTheme = createTheme();
         </Grid>
       </Grid>
     </ThemeProvider>
-        </div>)}
+        </div>)
     </div>
   );
 }
