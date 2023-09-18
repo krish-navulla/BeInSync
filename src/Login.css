@@ -73,6 +73,11 @@ svg#cancelIcon:hover {
     width: 30px;
 }
 
+.login-custom {
+    height: 100vh;
+    width: 100wh;
+    text-align: center;
+  }
 
 
 .login-card .container .heading-card h1{

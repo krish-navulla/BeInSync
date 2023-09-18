@@ -1,0 +1,9 @@
+.cardboard-container{
+
+    height: 60vh;
+    width: 40wh;
+    display: flex;
+    align-items: center;
+
+
+}

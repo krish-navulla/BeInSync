@@ -4,6 +4,7 @@ import { Card } from '@mui/material';
 import app from './firebase';
 import { Collections } from '@mui/icons-material';
 import { getFirestore, collection, getDocs, updateDoc } from 'firebase/firestore';
+import { Grid } from '@mui/material';
 
 
 
@@ -127,18 +128,12 @@ function SwipingCard() {
     
  
   return (
-    <div className='card' style={{ width: '100%', height: '100%' }}>
-      <p>Mentor Match</p>
     
-        {/* {showSuccessAlert && (
-        <div class="alert alert-primary d-flex align-items-center" role="alert" style={{ width: '5%', height: '5%' }}>
-        <div class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
-            <a href="#info-fill"/>
-        </div>
-        <div>
-            You are Matched!
-        </div>
-        </div>)} */}
+        <div className='swipingcard-container' style={{width: "100%", height: "100%"}}>
+        
+      
+    
+        
       {people
       .filter(person => person.email !== emailLoggedIn)
       .map((person, index) => (
@@ -157,6 +152,8 @@ function SwipingCard() {
         
       ))}
     </div>
+    
+    
 
   );
 }

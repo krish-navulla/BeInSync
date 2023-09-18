@@ -1,41 +1,32 @@
 import React from 'react';
+import { Grid, Paper } from '@mui/material';
+import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
+import { styled } from '@mui/material/styles';
+import Item from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
+
 
 function Profile() {
   return (
-    <div className="profile">
-      {/* Profile Picture */}
-      <img
-        className="profile-picture"
-        src="path-to-profile-picture"
-        alt="Profile"
-      />
-
-      {/* Name */}
-      <h2 className="profile-name">John Doe</h2>
-
-      {/* Skills */}
-      <div className="profile-skills">
-        <h3>Skills:</h3>
-        <ul>
-          <li>Skill 1</li>
-          <li>Skill 2</li>
-          {/* Add more skills */}
-        </ul>
-      </div>
-
-      {/* Matches List */}
-      <div className="profile-matches">
-        <h3>Matches:</h3>
-        <ul>
-          <li>Match 1</li>
-          <li>Match 2</li>
-          {/* Add more matches */}
-        </ul>
-      </div>
-
-      {/* Sign Out Option */}
-      <button className="sign-out-button">Sign Out</button>
-    </div>
+    <Grid Container style={{alignContent:"center", backgroundColor: " #007791"}} 
+    justifyContent= " center" alignItems="center"  >
+  
+    <Grid item  elevation={6} square >
+      <Paper>
+    <Box >
+    <Stack spacing={{ xs: 1, sm: 2 }} direction="column" useFlexGap flexWrap="wrap">
+              <Typography variant="body1">Item 1</Typography>
+              <Typography variant="body1">Item 2</Typography>
+              <Typography variant="body1">Long content</Typography>
+            </Stack>
+    </Box>
+  </Paper>
+    </Grid>
+    
+    
+  </Grid>
+    
   );
 }
 
