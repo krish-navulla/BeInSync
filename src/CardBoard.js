@@ -42,6 +42,7 @@ export default function MultiActionAreaCard({ data, index, name,email,  descript
 ><CssBaseline />
   {matched && (
     <Box
+    style={{ width: '100%', height: '100%' }}
       sx={{
 
         position: 'relative',
@@ -49,14 +50,14 @@ export default function MultiActionAreaCard({ data, index, name,email,  descript
         height: 300,
         backgroundColor: 'primary.dark',
         '&:hover': {
-          backgroundColor: 'primary.main',
+          backgroundColor: '#007791',
           opacity: [0.9, 0.8, 0.7],
         },
       }}
     >
-      <div className="alert alert-primary d-flex align-items-center" role="alert" style={{ width: '100%', height: '100%' }}>
+     
         <p>You are Matched!</p>
-      </div>
+      
     </Box>
   )}
 

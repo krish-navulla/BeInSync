@@ -1,6 +1,7 @@
 
 
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -15,7 +16,6 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from 'react-router-dom';
 
 
 function Copyright(props) {
@@ -54,7 +54,7 @@ const defaultTheme = createTheme();
                 console.log('User registered:', user);
                 // ...
                 
-                navigate('/swipingcard');
+                
 
                 console.log("Login success");
 
@@ -66,6 +66,8 @@ const defaultTheme = createTheme();
                 // ..
                 console.error('Registration error:', errorCode, errorMessage);
             });
+
+            navigate('/SwippingCard');
 
     };
 
@@ -92,7 +94,7 @@ const defaultTheme = createTheme();
         />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square >
         
-    <form class = " login">
+    <form className = " login">
         
         <label htmlFor="exampleInputEmail1" className="form-label">
         Email address

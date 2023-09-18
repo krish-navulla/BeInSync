@@ -129,7 +129,7 @@ function SwipingCard() {
  
   return (
     
-        <div className='swipingcard-container' style={{width: "100%", height: "100%"}}>
+        <div className='swipingcard-container' style={{width: "100%", height: "100%", backgroundColor: " #007791"}}>
         
       
     
