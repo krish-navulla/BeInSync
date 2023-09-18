@@ -131,6 +131,7 @@ function Chat() {
   const [messages, setMessages] = useState([]);
   const [user, setUser] = React.useState(null);
   const [sentMessage, setSentMessage] = useState("");
+  const [mounted, setMounted] = useState(true);
 
   const matchedEmail = "Krish@gmail.com";
 
@@ -161,13 +162,14 @@ function Chat() {
     });
     setSentMessage("");
     scroll.current.scrollIntoView({ behavior: 'smooth' });
-    getMessages();
+    // getMessages();
   };
 
 
 
   const handleSendMessage = async () => {
     setDocMessage();
+    getMessages();
     
   };
 
@@ -177,15 +179,22 @@ function Chat() {
         const db = getFirestore(app);
         const query1 = query(
             collection(db, 'Chats'),
-            orderBy('createdAt', 'asc')
+            orderBy('createdAt', 'desc'),
+            limit(100),
           );
         const query1Snapshot = await getDocs(query1);
-        query1Snapshot.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
-            setMessages((prevMessages) => [...prevMessages, doc.data()]);
+        const messages = query1Snapshot.docs.map((doc) => doc.data());
+        if(mounted){
+            setMessages(messages);
+        }
+        // query1Snapshot.forEach((doc) => {
+        //     // doc.data() is never undefined for query doc snapshots
+        //     console.log(doc.id, " => ", doc.data());
+        //     setMessages((prevMessages) => [...prevMessages, doc.data()]);
 
-        });
+        // }
+        // );
+        
         console.log("messages", messages);
         // if (!query1Snapshot.empty) {
         //     const newMessages = query1Snapshot.docs.map((doc) => doc.data())
@@ -203,7 +212,7 @@ function Chat() {
   }, []);
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box sx={{ width: '100%' , backgroundColor: " #007791"}}>
       {messages
         .filter(({ from, to }) => {
           return (
@@ -211,10 +220,13 @@ function Chat() {
             (user.email === to && from === matchedEmail)
           );
         })
+        .reverse()
+        .slice(-10)
         .map(({ id, text, from, to, uid, createdAt }, index) => (
           <Box
             key={id}
             sx={{
+                width: '80%',
               display: 'flex',
               height: 50,
               position: 'absolute',
@@ -222,11 +234,11 @@ function Chat() {
               flexDirection: 'column',
               p: 1,
               m: 1,
-              bgcolor: 'background.paper',
+              bgcolor: " #007791",
               borderRadius: 1,
             }}
           >
-            <Item>{from} : {text}</Item>
+            <Item sx={{width: "100%"}}>{from} : {text}</Item>
             
 
           </Box>
@@ -242,7 +254,7 @@ function Chat() {
           flexDirection: 'column',
           p: 1,
           m: 1,
-          bgcolor: 'background.paper',
+          bgcolor: "#007791",
           borderRadius: 1,
         }}
       >
@@ -250,7 +262,7 @@ function Chat() {
           placeholder="Send a Message"
           value={sentMessage}
           onChange={(e) => setSentMessage(e.target.value)}
-          style={{ padding: '10px', margin: '20px' }}
+          style={{ width: "100%",  padding: '10px', margin: '20px' }}
         />
         <button
           type="submit"
@@ -260,8 +272,8 @@ function Chat() {
           Submit
         </button>
       </Box>
-      <div ref={scroll}></div>
-    </Box>
+      <div style={{backgroundColor: "#007791"}} ref={scroll}></div>
+    </Box >
   );
   
 }

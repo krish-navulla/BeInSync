@@ -33,12 +33,12 @@ import Chat from './Chat';
 
 function App() {
   return (
-  <Container style={{alignContent : "center"}}>
+  <Container style={{alignContent : "center", backgroundColor: " #007791"}}>
   {/* <BrowserRouter> */}
      
         
 
-      <Routes>
+      <Routes style = {{backgroundColor: " #007791"}}>
       
       <Route index = {true} path = "/" element = {<Home />} />
       <Route path = "/chats" element = {<Chat />} />
