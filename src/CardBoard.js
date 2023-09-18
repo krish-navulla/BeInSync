@@ -34,23 +34,28 @@ export default function MultiActionAreaCard({ data, index, name,email,  descript
 
   
   <Grid
+  width={'100%'}
   Container
   direction="column"
   justifyContent="center"
   alignItems="center"
+  square
+  spacing={0} padding={1} margin={0}
   style={{ display: isHidden ? 'none' : 'flex', alignContent: "center", backgroundColor: " #007791" }}
 ><CssBaseline />
   {matched && (
     <Box
+    width={'100%'}
+    spacing={0} padding={1} margin={0}
     style={{ width: '100%', height: '100%' }}
       sx={{
 
         position: 'relative',
         width: 600,
         height: 300,
-        backgroundColor: 'primary.dark',
+        backgroundColor: '#007755',
         '&:hover': {
-          backgroundColor: '#007791',
+          backgroundColor: '#007755',
           opacity: [0.9, 0.8, 0.7],
         },
       }}
@@ -62,7 +67,8 @@ export default function MultiActionAreaCard({ data, index, name,email,  descript
   )}
 
   <Grid 
-  
+   width={'100%'}
+  spacing={0} padding={1} margin={0}
   direction="column"
   justifyContent="center"
   alignItems="center"
@@ -72,13 +78,16 @@ export default function MultiActionAreaCard({ data, index, name,email,  descript
 
     {!matched && (
       <Grid
+      width={'100%'}
+      spacing={0} padding={1} margin={0}
         Container
+        square
         direction="column"
         justifyContent="center"
         alignItems="center"
         style={{
-          width: 300,
-          height: 600,
+          width: "80%",
+          height: "50%",
           backgroundColor:  '#007791',
           '&:hover': {
             backgroundColor: 'primary.main',
@@ -86,39 +95,99 @@ export default function MultiActionAreaCard({ data, index, name,email,  descript
           },
         }}
       >
-        <Typography gutterBottom variant="h5">
-        <Typography variant = "h6" color = "text.primary">
-            I am:
-            </Typography>{data.name}
+        <Typography spacing={0} padding={1} margin={0} gutterBottom variant="h5">
+            <Box 
+            rowGap={0}
+            width={'100%'}
+            height={'30%'}
+            spacing={0} padding={0} margin={0}
+              Container
+              square
+              direction="row"
+              justifyContent="center"
+              alignItems="center"
+              bgcolor={"#007791"}>
+                <Typography width="100%" spacing={0} padding={1} margin={0} variant = "h2" color = "text.primary">
+            I am <Typography variant = "h1" color = "#FFFFFF">
+             {data.name}
+            </Typography>
+            </Typography>
+
+            </Box>
+            <Box 
+            rowGap={0}
+            width={'100%'}
+            height={'20%'}
+            spacing={0} padding={1} margin={0}
+              Container
+              square
+              direction="row"
+              justifyContent="center"
+              alignItems="center"
+              bgcolor={"#007791"}>
+                <Typography width="100%" spacing={0} padding={1} margin={0} variant = "h4" color = "text.primary">
+                I can help you with <Typography variant = "h3" 
+                color = "#FFFFFF">
+             {data.skill}
+            </Typography>
+            </Typography>
+
+            </Box>
+            <Box 
+            rowGap={0}
+            width={'100%'}
+            height={'10%'}
+            spacing={0} padding={1} margin={0}
+              Container
+              square
+              direction="row"
+              justifyContent="center"
+              alignItems="center"
+              bgcolor={"#007791"}>
+                <Typography width="100%"  spacing={0} padding={1} margin={0} variant = "h4" color = "text.primary">
+                Guide me in <Typography variant = "h3" color = "#FFFFFF">
+             {data.wanttolearn} ?
+            </Typography> 
+            </Typography>
+
+            </Box>
+            <Box
+            rowGap={0}
+            width={'100%'}
+            height={'60%'}
+            spacing={0} padding={1} margin={0}
+              Container
+              square
+              direction="row"
+              justifyContent="center"
+              alignItems="center"
+              bgcolor={"#007791"}>
+                <Typography  width="100%" spacing={0} padding={1} margin={0} variant = "h4" color = "text.primary">
+                Moreover <Typography variant = "h5" color = "#FFFFFF">
+             {data["about me"]}
+            </Typography>
+            </Typography>
+
+            </Box>
+        
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-        <Typography variant = "h6" color = "text.primary">
-            I can help you with:
-            </Typography>{data.skill}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-        <Typography variant = "h6" color = "text.primary">
-            About Me:
-            </Typography>{data["about me"]}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          <Typography variant = "h6" color = "text.primary">
-            Mentor me in:
-            </Typography>{data.wanttolearn}
-            
-        </Typography>
+        
+        
+        
       </Grid>
     )}
 
     {!matched && (
       <Grid
+      spacing={0} padding={1} margin={0}
+
         Container
         direction="column"
         justifyContent="center"
         alignItems="center"
         style={{
-          width: 300,
-          height: 150,
+          width: "80%",
+          height: "10%",
           backgroundColor: '#007791',
           '&:hover': {
             backgroundColor: 'primary',
@@ -126,12 +195,12 @@ export default function MultiActionAreaCard({ data, index, name,email,  descript
           },
         }}
       >
-        <div className="Ellipse1" style={{ width: 75, height: 75, left: -60, top: 60, position: "relative", background: '#D9D9D9', borderRadius: 9999, border: '1px black solid' }}>
+        <div spacing={0} padding={1} margin={0} className="Ellipse1" style={{ width: 75, height: 75, left: -60, top: 60, position: "relative", background: '#D9D9D9', borderRadius: 9999, border: '1px black solid' }}>
           <Button size="tiny" color="primary" onClick={handleSucessClick}>
             <CheckIcon />
           </Button>
         </div>
-        <div className="Ellipse1" style={{ width: 75, height: 75, left: 60, top: -56, position: "relative", background: '#D9D9D9', borderRadius: 9999, border: '1px black solid' }}>
+        <div spacing={0} padding={1} margin={0} className="Ellipse1" style={{ width: 75, height: 75, left: 60, top: -56, position: "relative", background: '#D9D9D9', borderRadius: 9999, border: '1px black solid' }}>
           <Button size="tiny" color="primary" onClick={handleRejectClick}>
             <CloseIcon />
           </Button>

@@ -226,8 +226,8 @@ function Chat() {
           <Box
             key={id}
             sx={{
-                width: '80%',
-              display: 'flex',
+                width: '20%',
+              display: 'inline-flex',
               height: 50,
               position: 'absolute',
               top: 30 + index * 100,

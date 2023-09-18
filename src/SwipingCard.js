@@ -4,7 +4,9 @@ import { Card } from '@mui/material';
 import app from './firebase';
 import { Collections } from '@mui/icons-material';
 import { getFirestore, collection, getDocs, updateDoc } from 'firebase/firestore';
+ 
 import { Grid } from '@mui/material';
+
 
 
 
@@ -129,12 +131,20 @@ function SwipingCard() {
  
   return (
     
-        <div  style={{width: "100%", height: "90%", backgroundColor: " #007791"}}>
+    <Grid 
+  width={'100%'}
+  container  
+  direction="column"
+    justifyContent="center"
+  elevation={6} square spacing={0} padding={1} margin={0} 
+  style={{alignContent:"center", backgroundColor: " #007700"}}>
+        {/* // <div  spacing={0} padding={1} margin={0} style={{ width: "100%", height: "90%", backgroundColor: " #007791"}}> */}
       {people
       .filter(person => person.email !== emailLoggedIn)
       .map((person, index) => (
         
           <CardBoard
+          style = {{backgroundColor: " #007755"}}
           key={index}
           data = {person}
             index={index}
@@ -150,7 +160,8 @@ function SwipingCard() {
           />
         
       ))}
-    </div>
+      </Grid>
+    
     
     
 

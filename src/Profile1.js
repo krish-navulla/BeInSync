@@ -47,27 +47,42 @@ function Profile() {
   }, []);
 
   return (
-    <Grid Container style={{alignContent:"center", backgroundColor: " #007791"}} 
+    <Grid 
+    width={"100%"} height={"70%"}
+    Container 
+    style={{alignContent:"center", backgroundColor: " #007791"}} 
     justifyContent= " center" alignItems="center"  >
   
     <Grid item  elevation={6} square >
       
     <Box sx={{
               
-                maxWidth: 900,
+                
                 width: '100%',
-                height: 1000,
-                backgroundColor: 'primary.dark',
+                height: "100%",
+                backgroundColor: '#007780',
                 '&:hover': {
                   backgroundColor: 'primary.main',
                   
                 },
               }}>
-    <Stack style={{ width: 900, height: 1000 }} spacing={{ xs: 1, sm: 2 }} direction="column" useFlexGap flexWrap="wrap">
+    <Stack style={{ width: "100%", height: "70%" }} 
+    spacing={{ xs: 1, sm: 2 }} direction="column" useFlexGap flexWrap="wrap"
+    sx={{
+              
+                
+      width: '100%',
+      height: "100%",
+      backgroundColor: '#007780',
+      '&:hover': {
+        backgroundColor: 'primary.main',
+        
+      },
+    }}>
               <Typography variant="h1" gutterBottom>{person.name}</Typography>
               <Typography variant="h3" gutterBottom>{person.skill}</Typography>
-              <Typography variant="h6" gutterBottom>{person.email}</Typography>
-              <Typography variant="h6" gutterBottom>{person["about me"]}</Typography>
+              <Typography variant="h3" gutterBottom>{person.email}</Typography>
+              <Typography variant="h3" gutterBottom>{person["about me"]}</Typography>
               
             </Stack>
     </Box>
